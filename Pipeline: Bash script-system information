@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Hostname: $(hostname)"
+echo "Date: $(date)"
+echo "CPU usage: $(top -bn1 | grep 'Cpu(s)' | awk '{print $2 + $4}')"
+echo "Memory usage: $(free -m | grep 'Mem:' | awk '{print $3 " MB"}')"
+echo "Disk usage: $(df -h | grep '/dev/' | awk '{print $5 " used on " $1}')"
+echo "Network interfaces: $(ip addr show)"
